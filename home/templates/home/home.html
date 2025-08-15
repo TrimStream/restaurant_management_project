@@ -1,4 +1,3 @@
-{% load static %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -7,43 +6,67 @@
   <title>Restaurant Manager</title>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+  <style>
+    :root{--bg:#0f172a;--panel:#111827;--text:#e5e7eb;--muted:#9ca3af;--brand:#ef4444;--brand2:#f59e0b;}
+    *{box-sizing:border-box} html,body{height:100%}
+    body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--text);
+      background:radial-gradient(1200px 600px at 10% -10%,rgba(239,68,68,.08),transparent 60%),
+                 radial-gradient(1000px 600px at 90% 0%,rgba(245,158,11,.08),transparent 60%),var(--bg);}
+    .nav{position:sticky;top:0;background:rgba(15,23,42,.6);backdrop-filter:blur(8px);
+      border-bottom:1px solid rgba(148,163,184,.12);padding:.8rem 1rem;display:flex;justify-content:space-between;max-width:1100px;margin:auto;}
+    .brand{display:flex;align-items:center;font-weight:700;gap:.6rem;}
+    .badge{width:30px;height:30px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand2));box-shadow:0 10px 24px -10px rgba(239,68,68,.35);}
+    .links a{color:var(--text);text-decoration:none;margin-left:1rem;opacity:.85;}
+    .links a:hover{opacity:1;}
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:center;max-width:1100px;margin:2.5rem auto;padding:0 1rem;}
+    h1{font-size:clamp(1.8rem,3.5vw,3rem);line-height:1.05;margin:0 0 .8rem;}
+    .lead{color:var(--muted);}
+    .btn{padding:.8rem 1rem;border-radius:12px;border:1px solid transparent;font-weight:600;cursor:pointer;transition:.15s;}
+    .btn-primary{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#0b0f1a;box-shadow:0 12px 28px -12px rgba(239,68,68,.35);}
+    .btn-primary:hover{transform:translateY(-1px);}
+    .btn-ghost{background:transparent;border-color:rgba(148,163,184,.25);color:var(--text);}
+    .btn-ghost:hover{border-color:rgba(148,163,184,.45);}
+    .hero-card{height:260px;border-radius:18px;border:1px solid rgba(148,163,184,.12);
+      background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+      box-shadow:0 20px 40px -24px rgba(0,0,0,.5);}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:1100px;margin:1rem auto 3rem;padding:0 1rem;}
+    .card{background:var(--panel);border:1px solid rgba(148,163,184,.14);padding:1rem;border-radius:16px;transition:.15s;}
+    .card:hover{transform:translateY(-2px);box-shadow:0 16px 36px -20px rgba(0,0,0,.6);border-color:rgba(239,68,68,.35);}
+    .footer{border-top:1px solid rgba(148,163,184,.12);color:var(--muted);text-align:center;padding:1rem;}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:600px){.grid{grid-template-columns:1fr}}
+  </style>
 </head>
 <body>
   <header class="nav">
-    <div class="nav-inner">
-      <div class="brand"><span class="badge"></span>Restaurant Manager</div>
-      <nav class="links">
-        <a href="#">Menu</a>
-        <a href="#">Orders</a>
-        <a href="#">Reservations</a>
-        <a class="login" href="#">Login</a>
-      </nav>
-    </div>
+    <div class="brand"><span class="badge"></span>Restaurant Manager</div>
+    <nav class="links">
+      <a href="#">Menu</a>
+      <a href="#">Orders</a>
+      <a href="#">Reservations</a>
+      <a href="#">Login</a>
+    </nav>
   </header>
 
   <main>
     <section class="hero">
       <div>
         <h1>Run your restaurant with speed and clarity.</h1>
-        <p class="lead">Manage menus, track orders in real-time, and streamline reservations—all in one dashboard.</p>
-        <div class="cta">
-          <a class="btn btn-primary" href="#">Open Dashboard</a>
-          <a class="btn btn-ghost" href="#">View Docs</a>
+        <p class="lead">Manage menus, track orders in real‑time, and streamline reservations—all in one dashboard.</p>
+        <div>
+          <a class="btn btn-primary" href="#">Open Dashboard</a>
+          <a class="btn btn-ghost" href="#">View Docs</a>
         </div>
       </div>
       <div class="hero-card"></div>
     </section>
-
-    <section class="section">
-      <div class="grid">
-        <article class="card"><h3>Live Orders</h3><p>See incoming orders instantly and keep the kitchen moving.</p></article>
-        <article class="card"><h3>Smart Menu</h3><p>Create, price, and feature dishes with effortless controls.</p></article>
-        <article class="card"><h3>Reservations</h3><p>Fill seats efficiently with a smooth booking flow.</p></article>
-      </div>
+    <section class="grid">
+      <article class="card"><h3>Live Orders</h3><p>See incoming orders instantly and keep the kitchen moving.</p></article>
+      <article class="card"><h3>Smart Menu</h3><p>Create, price, and feature dishes with effortless controls.</p></article>
+      <article class="card"><h3>Reservations</h3><p>Fill seats efficiently with a smooth booking flow.</p></article>
     </section>
   </main>
 
-  <footer class="footer">© {% now "Y" %} Restaurant Manager</footer>
+  <footer class="footer">© {{ now|date:"Y" }} Restaurant Manager</footer>
 </body>
 </html>
