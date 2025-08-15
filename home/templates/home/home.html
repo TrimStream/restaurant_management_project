@@ -1,0 +1,49 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Restaurant Manager</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand"><span class="badge"></span>Restaurant Manager</div>
+      <nav class="links">
+        <a href="#">Menu</a>
+        <a href="#">Orders</a>
+        <a href="#">Reservations</a>
+        <a class="login" href="#">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <h1>Run your restaurant with speed and clarity.</h1>
+        <p class="lead">Manage menus, track orders in real-time, and streamline reservations—all in one dashboard.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#">Open Dashboard</a>
+          <a class="btn btn-ghost" href="#">View Docs</a>
+        </div>
+      </div>
+      <div class="hero-card"></div>
+    </section>
+
+    <section class="section">
+      <div class="grid">
+        <article class="card"><h3>Live Orders</h3><p>See incoming orders instantly and keep the kitchen moving.</p></article>
+        <article class="card"><h3>Smart Menu</h3><p>Create, price, and feature dishes with effortless controls.</p></article>
+        <article class="card"><h3>Reservations</h3><p>Fill seats efficiently with a smooth booking flow.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">© {% now "Y" %} Restaurant Manager</footer>
+</body>
+</html>
